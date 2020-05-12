@@ -1,14 +1,16 @@
 import React from "react";
-import NavBar from "./components/NavBar";
+import NavBar from "./general/NavBar";
+import MoviePage from "./movies/MoviePage";
+import TvSeriesPage from "./tvseries/TvSeriesPage";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header>
-        <NavBar />
-      </header>
+    <div>
+      <NavBar />
+      {/* <TvSeriesPage/> */}
+      <MoviePage />
     </div>
   );
-}
+};
 
 export default App;
