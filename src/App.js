@@ -7,8 +7,8 @@ const App = () => {
   return (
     <div>
       <NavBar />
-      {/* <TvSeriesPage/> */}
       <MoviePage />
+      {/* <TvSeriesPage/> */}
     </div>
   );
 };

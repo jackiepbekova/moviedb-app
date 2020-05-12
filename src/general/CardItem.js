@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     maxWidth: 190,
     margin: 10,
   },
-  movieTitlle: {
+  movieTitle: {
     color: "black",
     maxHeight: "80px",
   },
@@ -32,11 +32,10 @@ const CardItem = ({ title, poster }) => {
         <CardContent>
           <Typography
             gutterBottom
-            className={classes.movieTitlle}
+            className={classes.movieTitle}
             component="h2"
           >
-            {" "}
-            {title}{" "}
+            {title}
           </Typography>
         </CardContent>
       </CardActionArea>
