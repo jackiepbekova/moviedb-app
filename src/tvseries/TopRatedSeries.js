@@ -1,21 +1,8 @@
-import React, { useEffect, useState } from "react";
-import fetchData from "../general/FetchData";
-import SeriesItemList from "./SeriesItemList";
+import React from "react";
+import ItemList from "../general/ItemList";
 
 const TopRatedSeries = () => {
-  const [series, setSeries] = useState([]);
-
-  useEffect(() => {
-    fetchData("tv", "top_rated")
-      .then((response) => {
-        setSeries([...response.data.results]);
-      })
-      .catch((error) => {
-        throw error;
-      });
-  }, []);
-
-  return <SeriesItemList data={series} />;
+  return <ItemList dataType="tv" listType="top_rated" />;
 };
 
 export default TopRatedSeries;

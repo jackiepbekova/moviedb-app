@@ -1,11 +1,12 @@
-import React, { Fragment } from "react";
+import React from "react";
 import PopularSeries from "./PopularSeries";
 import TopRatedSeries from "./TopRatedSeries";
 import { makeStyles } from "@material-ui/core/styles";
+import Section from "../general/Section";
 
 const useStyles = makeStyles({
-  header: {
-    margin: "1% 2%",
+  section: {
+    textAlign: "center",
   },
 });
 
@@ -13,12 +14,16 @@ const TvSeriesPage = () => {
   const classes = useStyles();
 
   return (
-    <Fragment>
-      <h3 className={classes.header}>Popular</h3>
-      <PopularSeries />
-      <h3 className={classes.header}>Top rated</h3>
-      <TopRatedSeries />
-    </Fragment>
+    <div>
+      <div className={classes.section}>
+        <Section sectionName="Popular" />
+        <PopularSeries />
+      </div>
+      <div className={classes.section}>
+        <Section sectionName="Top Rated" />
+        <TopRatedSeries />
+      </div>
+    </div>
   );
 };
 
