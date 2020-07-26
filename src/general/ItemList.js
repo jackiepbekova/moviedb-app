@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CardItem from "./CardItem";
 import { Box, makeStyles } from "@material-ui/core";
-import fetchData from "./FetchData";
+import { fetchItemsPageData } from "../utils/FetchData";
 import PropTypes from "prop-types";
 
 const useStyles = makeStyles({
@@ -18,14 +18,14 @@ const useStyles = makeStyles({
   },
 });
 
-const ItemList = ({ dataType, listType }) => {
+const ItemList = ({ itemType, listType, match, history }) => {
   const classes = useStyles();
-  const [movies, setMovies] = useState([]);
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetchData(dataType, listType)
+    fetchItemsPageData(itemType, listType)
       .then((response) => {
-        setMovies(
+        setItems(
           [...response.data.results].slice(0, 6).map((item) => ({
             id: item.id,
             title: item.title || item.name,
@@ -36,20 +36,21 @@ const ItemList = ({ dataType, listType }) => {
       .catch((error) => {
         throw error;
       });
-  }, [dataType, listType]);
+  }, [itemType, listType]);
 
   return (
     <Box className={classes.box}>
-      {movies.map((movie) => {
-        return (
-          <CardItem
-            className={classes.item}
-            key={movie.id}
-            title={movie.title}
-            poster={movie.poster}
-          />
-        );
-      })}
+      {items.map((item) => (
+        <CardItem
+          className={classes.item}
+          key={item.id}
+          id={item.id}
+          match={match}
+          history={history}
+          title={item.title}
+          poster={item.poster}
+        />
+      ))}
     </Box>
   );
 };
@@ -57,6 +58,6 @@ const ItemList = ({ dataType, listType }) => {
 export default ItemList;
 
 ItemList.propTypes = {
-  dataType: PropTypes.string.isRequired,
+  itemType: PropTypes.string.isRequired,
   listType: PropTypes.string.isRequired,
 };

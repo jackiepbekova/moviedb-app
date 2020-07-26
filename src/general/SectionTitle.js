@@ -9,10 +9,10 @@ const useStyles = makeStyles({
   },
 });
 
-const Section = ({ sectionName }) => {
+const SectionTitle = ({ sectionName }) => {
   const classes = useStyles();
 
   return <div className={classes.header}>{sectionName}</div>;
 };
 
-export default Section;
+export default SectionTitle;

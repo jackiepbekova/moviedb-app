@@ -11,8 +11,7 @@ const useStyles = makeStyles({
     margin: "0 0 30px 0",
   },
   navTab: {
-    fontSize: 30,
-    fontVariant: "all-small-caps",
+    fontSize: 23,
     fontWeight: "bold",
     color: "white",
     margin: "0 1.5em",
@@ -20,7 +19,7 @@ const useStyles = makeStyles({
     textDecoration: "none",
   },
   list: {
-    listStyleType: "none",
+    padding: "20px",
   },
 });
 
@@ -29,18 +28,14 @@ const NavBar = () => {
 
   return (
     <nav className={classes.navPanel}>
-      <ul className={classes.list}>
-        <li>
-          <Link to="/" className={classes.navTab}>
-            Movies
-          </Link>
-        </li>
-        <li>
-          <Link to="/tvseries" className={classes.navTab}>
-            TV Series
-          </Link>
-        </li>
-      </ul>
+      <div className={classes.list}>
+        <Link to="/movies" className={classes.navTab}>
+          MOVIES
+        </Link>
+        <Link to="/tvseries" className={classes.navTab}>
+          TV SERIES
+        </Link>
+      </div>
     </nav>
   );
 };
